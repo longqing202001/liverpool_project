@@ -23,4 +23,15 @@ Step 6
 
 Step 7
   perform evaluate_cb.py under the cb directory to evaluate content-based model. 
+
+Step 8
+  perform cf_model.py under the cf directory to train and evaluate collaborative filtering model.
   
+Step 9
+  perform sb.py under the sb directory to train and evaluate session-based model.
+
+Step 10
+  perform cb_cf_model.py under the cb_cf_hybrid directory to train and evaluate Hybrid Model(Content-Based and Collaborative Filtering).
+  
+Step 11
+  perform cb_sb_model.py under the cb_sb_hybrid directory to train and evaluate Hybrid Model(Content-Based and Session-Based).
