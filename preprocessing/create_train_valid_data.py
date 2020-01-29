@@ -21,8 +21,8 @@ parser.add_argument('--train_mask_data', default='train_mask.dat', type=str)
 parser.add_argument('--valid_mask_data', default='valid_mask.dat', type=str)
 parser.add_argument('--item_dic_data', default='item_dic.txt', type=str)
 parser.add_argument('--visitor_dic_data', default='visitor_dic.txt', type=str)
-parser.add_argument("-seed", type=int, default=22, help="Seed for random initialization") #Random seed setting
-parser.add_argument('--batch_size', default=256, type=int) #50 in first paper and 32 in second paper
+parser.add_argument("-seed", type=int, default=22, help="Seed for random initialization") 
+parser.add_argument('--batch_size', default=256, type=int) 
 
 # Get the arguments
 args = parser.parse_args()
