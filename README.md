@@ -11,3 +11,8 @@ Step 2
   
 Step 3
   perform preprocessing_event_data.py under the preprocessing directory to clean the user's interaction data
+
+Step 3
+  perform create_train_valid_data.py under the preprocessing directory to create training and evaluation dataset.
+  
+  
