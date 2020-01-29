@@ -1,0 +1,128 @@
+
+
+Using TensorFlow backend.
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:541: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:4432: The name tf.random_uniform is deprecated. Please use tf.random.uniform instead.
+
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:66: The name tf.get_default_graph is deprecated. Please use tf.compat.v1.get_default_graph instead.
+
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:148: The name tf.placeholder_with_default is deprecated. Please use tf.compat.v1.placeholder_with_default instead.
+
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:3733: calling dropout (from tensorflow.python.ops.nn_ops) with keep_prob is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `rate` instead of `keep_prob`. Rate should be set to `rate = 1 - keep_prob`.
+Model: "model_1"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to                     
+==================================================================================================
+user (InputLayer)               (None, 1)            0                                            
+__________________________________________________________________________________________________
+item (InputLayer)               (None, 1)            0                                            
+__________________________________________________________________________________________________
+user_embedding (Embedding)      (None, 1, 128)       13015168    user[0][0]                       
+__________________________________________________________________________________________________
+item_embedding (Embedding)      (None, 1, 128)       6692352     item[0][0]                       
+__________________________________________________________________________________________________
+reshape_1 (Reshape)             (None, 128)          0           user_embedding[0][0]             
+__________________________________________________________________________________________________
+reshape_2 (Reshape)             (None, 128)          0           item_embedding[0][0]             
+__________________________________________________________________________________________________
+concatenate_1 (Concatenate)     (None, 256)          0           reshape_1[0][0]                  
+                                                                 reshape_2[0][0]                  
+__________________________________________________________________________________________________
+dropout_1 (Dropout)             (None, 256)          0           concatenate_1[0][0]              
+__________________________________________________________________________________________________
+dense_1 (Dense)                 (None, 52284)        13436988    dropout_1[0][0]                  
+==================================================================================================
+Total params: 33,144,508
+Trainable params: 33,144,508
+Non-trainable params: 0
+__________________________________________________________________________________________________
+None
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/optimizers.py:793: The name tf.train.Optimizer is deprecated. Please use tf.compat.v1.train.Optimizer instead.
+
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:3576: The name tf.log is deprecated. Please use tf.math.log instead.
+
+  0% 0/548864 [00:00<?, ?it/s]Training epoch 0. 
+tcmalloc: large alloc 2091360256 bytes == 0x695c000 @  0x7f2849d7b001 0x7f28478990f5 0x7f28478fc4d9 0x7f28478fe6af 0x7f28479949b8 0x50ac25 0x50d390 0x508245 0x50a080 0x50aa7d 0x50c5b9 0x508245 0x50b403 0x635222 0x6352d7 0x638a8f 0x639631 0x4b0f40 0x7f2849976b97 0x5b2fda
+tcmalloc: large alloc 2091360256 bytes == 0x833d6000 @  0x7f2849d791e7 0x7f2847898f71 0x7f28478ff440 0x7f28478f4205 0x7f284799732c 0x50ac25 0x50c5b9 0x508245 0x50b403 0x635222 0x6352d7 0x638a8f 0x639631 0x4b0f40 0x7f2849976b97 0x5b2fda
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/tensorflow_core/python/ops/math_grad.py:1424: where (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.where in 2.0, which has the same broadcast rule as np.where
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:1033: The name tf.assign_add is deprecated. Please use tf.compat.v1.assign_add instead.
+
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:1020: The name tf.assign is deprecated. Please use tf.compat.v1.assign instead.
+
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:3005: The name tf.Session is deprecated. Please use tf.compat.v1.Session instead.
+
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:190: The name tf.get_default_session is deprecated. Please use tf.compat.v1.get_default_session instead.
+
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:197: The name tf.ConfigProto is deprecated. Please use tf.compat.v1.ConfigProto instead.
+
+2020-01-10 02:03:53.128580: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2200000000 Hz
+2020-01-10 02:03:53.128767: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x188abc0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-01-10 02:03:53.128797: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-01-10 02:03:53.130603: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+2020-01-10 02:03:53.246722: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-01-10 02:03:53.247366: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x188ad80 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2020-01-10 02:03:53.247390: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Tesla P100-PCIE-16GB, Compute Capability 6.0
+2020-01-10 02:03:53.247605: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-01-10 02:03:53.248090: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1618] Found device 0 with properties: 
+name: Tesla P100-PCIE-16GB major: 6 minor: 0 memoryClockRate(GHz): 1.3285
+pciBusID: 0000:00:04.0
+2020-01-10 02:03:53.248366: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2020-01-10 02:03:53.249814: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2020-01-10 02:03:53.251290: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10
+2020-01-10 02:03:53.251597: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10
+2020-01-10 02:03:53.253833: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10
+2020-01-10 02:03:53.254748: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10
+2020-01-10 02:03:53.259161: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2020-01-10 02:03:53.259269: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-01-10 02:03:53.259964: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-01-10 02:03:53.260473: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1746] Adding visible gpu devices: 0
+2020-01-10 02:03:53.260524: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2020-01-10 02:03:53.261703: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1159] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-01-10 02:03:53.261732: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1165]      0 
+2020-01-10 02:03:53.261742: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1178] 0:   N 
+2020-01-10 02:03:53.261855: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-01-10 02:03:53.262736: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-01-10 02:03:53.263473: W tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:39] Overriding allow_growth setting because the TF_FORCE_GPU_ALLOW_GROWTH environment variable is set. Original config value was 0.
+2020-01-10 02:03:53.263528: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1304] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 15216 MB memory) -> physical GPU (device: 0, name: Tesla P100-PCIE-16GB, pci bus id: 0000:00:04.0, compute capability: 6.0)
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:207: The name tf.global_variables is deprecated. Please use tf.compat.v1.global_variables instead.
+
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:216: The name tf.is_variable_initialized is deprecated. Please use tf.compat.v1.is_variable_initialized instead.
+
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:223: The name tf.variables_initializer is deprecated. Please use tf.compat.v1.variables_initializer instead.
+
+2020-01-10 02:03:54.266030: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+Epoch 0. Loss: 10.53107:   2% 10000/548864 [00:07<06:20, 1417.57it/s]tcmalloc: large alloc 2091360256 bytes == 0x833d6000 @  0x7f2849d7b001 0x7f28478990f5 0x7f28478fc4d9 0x7f28478fe6af 0x7f28479949b8 0x50ac25 0x50d390 0x508245 0x50a080 0x50aa7d 0x50c5b9 0x508245 0x50b403 0x635222 0x6352d7 0x638a8f 0x639631 0x4b0f40 0x7f2849976b97 0x5b2fda
+tcmalloc: large alloc 2091360256 bytes == 0x695c000 @  0x7f2849d791e7 0x7f2847898f71 0x7f28478ff440 0x7f28478f4205 0x7f284799732c 0x50ac25 0x50c5b9 0x508245 0x50b403 0x635222 0x6352d7 0x638a8f 0x639631 0x4b0f40 0x7f2849976b97 0x5b2fda
+Epoch 0. Loss: 10.33642:   4% 20000/548864 [00:11<05:34, 1581.46it/s]tcmalloc: large alloc 2091360256 bytes == 0x695c000 @  0x7f2849d7b001 0x7f28478990f5 0x7f28478fc4d9 0x7f28478fe6af 0x7f28479949b8 0x50ac25 0x50d390 0x508245 0x50a080 0x50aa7d 0x50c5b9 0x508245 0x50b403 0x635222 0x6352d7 0x638a8f 0x639631 0x4b0f40 0x7f2849976b97 0x5b2fda
+tcmalloc: large alloc 2091360256 bytes == 0x833d6000 @  0x7f2849d791e7 0x7f2847898f71 0x7f28478ff440 0x7f28478f4205 0x7f284799732c 0x50ac25 0x50c5b9 0x508245 0x50b403 0x635222 0x6352d7 0x638a8f 0x639631 0x4b0f40 0x7f2849976b97 0x5b2fda
+Epoch 0. Loss: 7.97278:  98% 540000/548864 [04:07<00:04, 2209.45it/s]
+Training epoch 0, Training loss = 7.9728,Validation HR@50 = 0.3100, NDCG@50 = 0.1432. 
+  0% 0/548864 [00:00<?, ?it/s]Training epoch 1. 
+Epoch 1. Loss: 5.80075:  98% 540000/548864 [04:04<00:03, 2226.88it/s]
+Training epoch 1, Training loss = 5.8008,Validation HR@50 = 0.3590, NDCG@50 = 0.1627. 
+  0% 0/548864 [00:00<?, ?it/s]Training epoch 2. 
+Epoch 2. Loss: 4.66411:  98% 540000/548864 [04:02<00:03, 2227.25it/s]
+Training epoch 2, Training loss = 4.6641,Validation HR@50 = 0.3653, NDCG@50 = 0.1619. 
+  0% 0/548864 [00:00<?, ?it/s]Training epoch 3. 
+Epoch 3. Loss: 4.09074:  98% 540000/548864 [04:02<00:03, 2230.72it/s]
+Training epoch 3, Training loss = 4.0907,Validation HR@50 = 0.3638, NDCG@50 = 0.1604. 
+  0% 0/548864 [00:00<?, ?it/s]Training epoch 4. 
+Epoch 4. Loss: 3.78781:  98% 540000/548864 [04:02<00:03, 2217.93it/s]
+Training epoch 4, Training loss = 3.7878,Validation HR@50 = 0.3623, NDCG@50 = 0.1590. 
+  0% 0/548864 [00:00<?, ?it/s]Training epoch 5. 
+Epoch 5. Loss: 3.63495:  98% 540000/548864 [04:01<00:03, 2234.05it/s]
+Training epoch 5, Training loss = 3.6350,Validation HR@50 = 0.3626, NDCG@50 = 0.1584. 
+  0% 0/548864 [00:00<?, ?it/s]Training epoch 6. 
+Epoch 6. Loss: 3.55028:  98% 540000/548864 [04:00<00:03, 2244.03it/s]
+Training epoch 6, Training loss = 3.5503,Validation HR@50 = 0.3644, NDCG@50 = 0.1596. 
+  0% 0/548864 [00:00<?, ?it/s]Training epoch 7. 
+Epoch 7. Loss: 3.46563:  98% 540000/548864 [04:00<00:03, 2248.41it/s]
+Training epoch 7, Training loss = 3.4656,Validation HR@50 = 0.3632, NDCG@50 = 0.1590. 
+End. Best Iteration 2:  HR@50  = 0.3653, NDCG@50 = 0.1619. 
+
+

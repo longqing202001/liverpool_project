@@ -1,0 +1,124 @@
+
+
+Using TensorFlow backend.
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:66: The name tf.get_default_graph is deprecated. Please use tf.compat.v1.get_default_graph instead.
+
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:541: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:4432: The name tf.random_uniform is deprecated. Please use tf.random.uniform instead.
+
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:148: The name tf.placeholder_with_default is deprecated. Please use tf.compat.v1.placeholder_with_default instead.
+
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:3733: calling dropout (from tensorflow.python.ops.nn_ops) with keep_prob is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `rate` instead of `keep_prob`. Rate should be set to `rate = 1 - keep_prob`.
+/content/drive/My Drive/liverpool/cb_sb_hybrid/cb_sb_model.py:78: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=[<tf.Tenso...)`
+  model = Model(input=[inputs1,inputs2], output=[predictions])
+Model: "model_1"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to                     
+==================================================================================================
+input_1 (InputLayer)            (256, 1, 52284)      0                                            
+__________________________________________________________________________________________________
+input_2 (InputLayer)            (256, 1, 500)        0                                            
+__________________________________________________________________________________________________
+concatenate_1 (Concatenate)     (256, 1, 52784)      0           input_1[0][0]                    
+                                                                 input_2[0][0]                    
+__________________________________________________________________________________________________
+gru_1 (GRU)                     [(256, 100), (256, 1 15865500    concatenate_1[0][0]              
+__________________________________________________________________________________________________
+dropout_1 (Dropout)             (256, 100)           0           gru_1[0][0]                      
+__________________________________________________________________________________________________
+dense_1 (Dense)                 (256, 52284)         5280684     dropout_1[0][0]                  
+==================================================================================================
+Total params: 21,146,184
+Trainable params: 21,146,184
+Non-trainable params: 0
+__________________________________________________________________________________________________
+None
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/optimizers.py:793: The name tf.train.Optimizer is deprecated. Please use tf.compat.v1.train.Optimizer instead.
+
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:3576: The name tf.log is deprecated. Please use tf.math.log instead.
+
+Training epoch 0. 
+  0% 0/548864 [00:00<?, ?it/s]WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:190: The name tf.get_default_session is deprecated. Please use tf.compat.v1.get_default_session instead.
+
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:197: The name tf.ConfigProto is deprecated. Please use tf.compat.v1.ConfigProto instead.
+
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:203: The name tf.Session is deprecated. Please use tf.compat.v1.Session instead.
+
+2020-01-10 05:34:21.163488: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2300000000 Hz
+2020-01-10 05:34:21.165976: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x1a24bc0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-01-10 05:34:21.166010: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-01-10 05:34:21.171351: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+2020-01-10 05:34:21.322562: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-01-10 05:34:21.323284: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x1a24a00 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2020-01-10 05:34:21.323319: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Tesla P100-PCIE-16GB, Compute Capability 6.0
+2020-01-10 05:34:21.324569: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-01-10 05:34:21.325182: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1618] Found device 0 with properties: 
+name: Tesla P100-PCIE-16GB major: 6 minor: 0 memoryClockRate(GHz): 1.3285
+pciBusID: 0000:00:04.0
+2020-01-10 05:34:21.341572: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2020-01-10 05:34:21.581157: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2020-01-10 05:34:21.714450: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10
+2020-01-10 05:34:21.741766: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10
+2020-01-10 05:34:22.010430: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10
+2020-01-10 05:34:22.040608: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10
+2020-01-10 05:34:22.537924: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2020-01-10 05:34:22.538150: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-01-10 05:34:22.538892: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-01-10 05:34:22.539501: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1746] Adding visible gpu devices: 0
+2020-01-10 05:34:22.545709: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2020-01-10 05:34:22.547241: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1159] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-01-10 05:34:22.547312: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1165]      0 
+2020-01-10 05:34:22.547323: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1178] 0:   N 
+2020-01-10 05:34:22.549921: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-01-10 05:34:22.550627: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-01-10 05:34:22.551182: W tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:39] Overriding allow_growth setting because the TF_FORCE_GPU_ALLOW_GROWTH environment variable is set. Original config value was 0.
+2020-01-10 05:34:22.551224: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1304] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 15216 MB memory) -> physical GPU (device: 0, name: Tesla P100-PCIE-16GB, pci bus id: 0000:00:04.0, compute capability: 6.0)
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:207: The name tf.global_variables is deprecated. Please use tf.compat.v1.global_variables instead.
+
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:216: The name tf.is_variable_initialized is deprecated. Please use tf.compat.v1.is_variable_initialized instead.
+
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:223: The name tf.variables_initializer is deprecated. Please use tf.compat.v1.variables_initializer instead.
+
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/tensorflow_core/python/ops/math_grad.py:1424: where (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.where in 2.0, which has the same broadcast rule as np.where
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:1033: The name tf.assign_add is deprecated. Please use tf.compat.v1.assign_add instead.
+
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py:1020: The name tf.assign is deprecated. Please use tf.compat.v1.assign instead.
+
+2020-01-10 05:34:30.316605: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+Epoch 0. Loss: 6.56856: 100% 548608/548864 [03:25<00:00, 2789.21it/s]tcmalloc: large alloc 1392009216 bytes == 0x968c2000 @  0x7f8e5866f1e7 0x7f8e5618ef71 0x7f8e561f255d 0x7f8e561f2733 0x7f8e5623e78c 0x7f8e56242520 0x7f8e562809e9 0x50ac25 0x50c5b9 0x509d48 0x50aa7d 0x50c5b9 0x508245 0x50b403 0x635222 0x6352d7 0x638a8f 0x639631 0x4b0f40 0x7f8e5826cb97 0x5b2fda
+Epoch 0. Loss: 6.56856: 100% 548864/548864 [03:40<00:00, 2789.21it/s]Training epoch 0, Training loss = 6.5686,Validation HR@50 = 0.3205, NDCG@50 = 0.1326. 
+Epoch 0. Loss: 6.56856: 100% 548864/548864 [03:41<00:00, 2475.53it/s]
+Training epoch 1. 
+Epoch 1. Loss: 5.75101: 100% 548864/548864 [03:15<00:00, 2831.59it/s]tcmalloc: large alloc 1392009216 bytes == 0x968c2000 @  0x7f8e5866f1e7 0x7f8e5618ef71 0x7f8e561f255d 0x7f8e561f2733 0x7f8e5623e78c 0x7f8e56242520 0x7f8e562809e9 0x50ac25 0x50c5b9 0x509d48 0x50aa7d 0x50c5b9 0x508245 0x50b403 0x635222 0x6352d7 0x638a8f 0x639631 0x4b0f40 0x7f8e5826cb97 0x5b2fda
+Epoch 1. Loss: 5.75101: 100% 548864/548864 [03:30<00:00, 2831.59it/s]Training epoch 1, Training loss = 5.7510,Validation HR@50 = 0.3770, NDCG@50 = 0.1573. 
+
+Training epoch 2. 
+Epoch 2. Loss: 5.11679: 100% 548864/548864 [03:14<00:00, 2834.25it/s]tcmalloc: large alloc 1392009216 bytes == 0x968c2000 @  0x7f8e5866f1e7 0x7f8e5618ef71 0x7f8e561f255d 0x7f8e561f2733 0x7f8e5623e78c 0x7f8e56242520 0x7f8e562809e9 0x50ac25 0x50c5b9 0x509d48 0x50aa7d 0x50c5b9 0x508245 0x50b403 0x635222 0x6352d7 0x638a8f 0x639631 0x4b0f40 0x7f8e5826cb97 0x5b2fda
+Epoch 2. Loss: 5.11679: 100% 548864/548864 [03:30<00:00, 2834.25it/s]Training epoch 2, Training loss = 5.1168,Validation HR@50 = 0.3947, NDCG@50 = 0.1678. 
+
+Training epoch 3. 
+Epoch 3. Loss: 4.73251: 100% 548864/548864 [03:30<00:00, 2781.76it/s]Training epoch 3, Training loss = 4.7325,Validation HR@50 = 0.3968, NDCG@50 = 0.1695. 
+
+Training epoch 4. 
+Epoch 4. Loss: 4.37132: 100% 548864/548864 [03:30<00:00, 2832.41it/s]Training epoch 4, Training loss = 4.3713,Validation HR@50 = 0.3914, NDCG@50 = 0.1685. 
+
+Training epoch 5. 
+Epoch 5. Loss: 4.09161: 100% 548864/548864 [03:30<00:00, 2841.14it/s]Training epoch 5, Training loss = 4.0916,Validation HR@50 = 0.3863, NDCG@50 = 0.1687. 
+
+Training epoch 6. 
+Epoch 6. Loss: 3.91484: 100% 548864/548864 [03:12<00:00, 2971.21it/s]Training epoch 6, Training loss = 3.9148,Validation HR@50 = 0.3866, NDCG@50 = 0.1678. 
+
+Training epoch 7. 
+Epoch 7. Loss: 3.69100: 100% 548864/548864 [03:02<00:00, 3010.92it/s]Training epoch 7, Training loss = 3.6910,Validation HR@50 = 0.3839, NDCG@50 = 0.1684. 
+
+Training epoch 8. 
+Epoch 8. Loss: 3.63163: 100% 548864/548864 [03:01<00:00, 3049.24it/s]Training epoch 8, Training loss = 3.6316,Validation HR@50 = 0.3842, NDCG@50 = 0.1666. 
+
+End. Best Iteration 3:  HR@50  = 0.3968, NDCG@50 = 0.1695. 
+
+
