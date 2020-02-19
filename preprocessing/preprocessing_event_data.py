@@ -4,20 +4,24 @@ import datetime
 import pickle
 
 def removeShortSessions(data):
-    #delete sessions of length < 5
-    sessionLen = data.groupby('visitorid').size() #group by visitorid and get size of each session
+    #delete sessions of length < 2
+    #group by visitorid and get size 
+    sessionLen = data.groupby('visitorid').size() 
     data = data[np.in1d(data.visitorid, sessionLen[sessionLen > 2].index)]
     return data
 
 def removeRareItems(data):
     #delete items of length < 5
-    itemLen = data.groupby('itemid').size() #group by itemid and get size of each session
+    #group by itemid and get size
+    itemLen = data.groupby('itemid').size() 
     data = data[np.in1d(data.itemid, itemLen[itemLen > 5].index)]
     return data
 
+#Path to Original interaction csv file
 preprocessed_data_path="/home/ryu/Desktop/project/liverpoor/data/raw_data/"
-dataBefore = preprocessed_data_path+'events.csv' #Path to Original Training Dataset "Clicks" File
-dataAfter = "/home/ryu/Desktop/project/liverpoor/data/preprocessed_data/" #Path to Processed Dataset Folder
+dataBefore = preprocessed_data_path+'events.csv' 
+#Path to Processed Folder
+dataAfter = "/home/ryu/Desktop/project/liverpoor/data/preprocessed_data/" 
 
 attribute_path=dataAfter+'item_attribute.csv'
 df=pd.read_csv(attribute_path)

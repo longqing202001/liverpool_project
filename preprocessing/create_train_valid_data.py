@@ -38,34 +38,18 @@ use_cuda = torch.cuda.is_available()
 device = torch.device('cuda' if use_cuda else 'cpu')
 
 def save_pickle_data(dataloader,input_filepath,target_filepath,mask_filepath,batch_size,all_df_data):
-    numbers_of_N_sample=1
     visitorid_s = []
     input_item_s = []
     target_item_s = []
     mask_s = []
-    negative_item_s = []
-    df_temp = all_df_data.drop_duplicates(subset = 'item_idx', keep = 'first')
     for ii, (visitorid, input, target, mask) in tqdm(enumerate(dataloader), total=len(dataloader.dataset.df) // dataloader.batch_size, miniters = 1000):
             #for input, target, mask in dataloader:
                 visitorid = visitorid.to(device)
-                #print("visitorid:")
-                #print(visitorid)
                 visitorid_s=visitorid_s+visitorid.tolist()
                 input = input.to(device)
-                #print("input:") 
-                #print(input)
                 input_item_s=input_item_s+input.tolist()              
                 target = target.to(device)
-                #print("target:")  
-                #print(target)
                 target_item_s=target_item_s+target.tolist()
-                #negative_targets.append[[1]]
-                #for drop_id in visitorid:
-                #    list_ = df_temp[df_temp['visitorid'] != drop_id]['item_idx'].sample(numbers_of_N_sample).values.tolist()
-                #    negative_targets.append(list_)
-                #print("negative_targets:")
-                #print(negative_targets)     
-                #negative_item_s=negative_item_s+negative_targets
                 mask = mask.to(device)
                 mask_s.append(mask.tolist())
 
@@ -74,12 +58,11 @@ def save_pickle_data(dataloader,input_filepath,target_filepath,mask_filepath,bat
     with open(input_filepath, "wb") as f:
         pickle.dump(input_items, f)
 
-    print("input lenghts:"+str(len(mask_s)))
+    print("mssk lenghts:"+str(len(mask_s)))
     with open(mask_filepath, "wb") as f:
         pickle.dump(mask_s, f)
 
-    #target_items=list(zip(target_item_s,negative_item_s))
-    print("input lenghts:"+str(len(target_item_s)))
+    print("target lenghts:"+str(len(target_item_s)))
     with open(target_filepath, "wb") as f:
         pickle.dump(target_item_s, f)
      
