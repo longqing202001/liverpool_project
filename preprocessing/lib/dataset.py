@@ -126,16 +126,9 @@ class DataLoader():
                 idx_input = idx_target
                 idx_target = df.item_idx.values[start + i + 1]
                 visitorid=torch.from_numpy(idx_visitorid)
-                #visitorid = torch.IntTensor(idx_visitorid)
                 input = torch.LongTensor(idx_input)
                 target = torch.LongTensor(idx_target)
-                mask = torch.LongTensor(mask)
-                #print("visitorid:")
-                #print(visitorid)
-                #print("input:")
-                #print(input)
-                #print("target:")
-                #print(target)          
+                mask = torch.LongTensor(mask)       
                 yield visitorid, input, target, mask
 
             # click indices where a particular session meets second-to-last element
