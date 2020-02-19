@@ -1,5 +1,35 @@
 This is a project created for my dissertation in Liverpool online programmer.
 
+Program directory structure
+
+cb	
+	create_item_attribute.py
+	create_item_feature.py
+	create_item_top_map.py
+	evaluate_cb.py
+cb_cf_hybrid
+	cb_cf_model.py
+	ProjectUtility.py
+cb_sb_hybrid
+	cb_sb_model.py
+	ProjectUtility.py
+cf
+	cf_model.py
+	ProjectUtility.py
+checkpoint
+data
+	preprocessed_data
+	raw_data
+preprocessing
+	create_train_valid_data.py
+	preprocessing_event_data.py
+	lib
+		__init__.py
+		dataset.py
+sb
+	sb.py
+	ProjectUtility.py
+
 Step 1
   download the dataset( Retail rocket recommender system) and place it in the data/raw_data directory.The dataset includs three csv files(events.csv,item_properties_part1.csv and item_properties_part2.csv) 
  
