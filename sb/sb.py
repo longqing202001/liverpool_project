@@ -116,7 +116,6 @@ if __name__ == '__main__':
     model = get_model(num_items)
     print(model.summary())
     optimizer_obj=keras.optimizers.Adagrad(lr=args.learning_rate)
-    #optimizer_obj=keras.optimizers.Adam(lr=args.learning_rate, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
     model.compile(optimizer=optimizer_obj, loss='categorical_crossentropy',metrics=['accuracy'])
     hr_list = []
     loss_list = []
