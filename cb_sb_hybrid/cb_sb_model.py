@@ -43,34 +43,9 @@ def evaluate_model(model, item_valid_input, valid_labels,num_items, topK):
     return (hits, ndcgs)
 
 def get_model(num_items,item_features):
-    # ### define placeholder.
-    # inputs1 = Input(batch_shape=(args.batch_size, 1, num_items))
-    # inputs2 = Input(batch_shape=(args.batch_size, 1, item_features))
-    # # GRU with item id
-    # hidden_units = 100
-    # gru, gru_states = GRU(hidden_units, stateful=True, return_state=True)(inputs1)
-    # drop1 = Dropout(0.25)(gru)
-    # dense1 = Dense(512, activation='relu')(drop1)
-
-    # # GRU with item feature
-    # hidden_units = 100
-    # gru, gru_states = GRU(hidden_units, stateful=True, return_state=True)(inputs2)
-    # drop2 = Dropout(0.25)(gru)
-    # dense2 = Dense(1024, activation='relu')(drop2)
-
-    # concat = Concatenate()([dense1,dense2])
-    # #dense3 = Dense(2048, activation='relu')(concat)
-    # #concat_dropout = keras.layers.Dropout(0.25)(dense3)
-    # #dense = Dense(5096,name='FullyConnected')(concat_dropout)
-    # out = Dense(num_items, activation='softmax')(concat)
-    # model = Model(input=[inputs1,inputs2], output=[out])
-    # return model
-
     hidden_units = 100
     inputs1= Input(batch_shape=(args.batch_size, 1, num_items))
     inputs2 = Input(batch_shape=(args.batch_size, 1, item_features))
-    #item_id_dense = Dense(2048, activation='relu')(inputs1)
-    #item_vector_dense = Dense(2048, activation='relu')(inputs2)
     concat = Concatenate()([inputs1,inputs2])
     gru, gru_states = GRU(hidden_units, stateful=True, return_state=True)(concat)
     drop1 = Dropout(0.25)(gru)
