@@ -57,23 +57,10 @@ def get_model(num_users, num_items, item_features, latent_dim, regs=[1e-6,1e-6])
 
     user_vecs = Reshape([latent_dim])(user_embedding)
     item_vecs = Reshape([latent_dim])(item_embedding)
-    #concat = Concatenate()([user_vecs, item_vecs])
     mf = multiply([user_vecs, item_vecs])
-    ### input extracted matrix(here use embedding) and concatenate with one single DNN layer
     concat = Concatenate()([mf,item_feature_input])
-    #concat = Concatenate()([mf,item_vector_dense])
-    #concat = Concatenate()([user_vecs, item_vecs])
-    #concat = Concatenate([user_vecs, item_vecs])
     concat_dropout = keras.layers.Dropout(0.25)(concat)
-    #dense = Dense(200,name='FullyConnected')(concat_dropout)
     out = Dense(num_items, activation='softmax')(concat_dropout)
-    ### The prediction, which we calculate the loss function with ground truth and optimize.
-    #y = Dot(2, normalize=False)([user_vecs, item_vecs])
-    #dense_1 = keras.layers.Dense(512, activation='relu',name='Activation')(y)    
-    #dropout_1 = keras.layers.Dropout(0.2,name='Dropout-1')(dense_1)
-    #dense_2 = keras.layers.Dense(512,activation='relu',name='FullyConnected-1')(dropout_1)
-    #dropout_2 = keras.layers.Dropout(0.2,name='Dropout-2')(dense_2)
-    #out = Dense(num_items, activation='softmax')(dropout_2)
     model = Model(inputs=[user_id_input, item_id_input, item_feature_input], outputs=out)
     return model
 
