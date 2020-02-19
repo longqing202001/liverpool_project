@@ -71,10 +71,6 @@ DF_var = DF_var.drop('itemid', 1)
 #DF_var.drop('itemid', axis=1)
 print(DF_var.values)
 
-#item_matrix_path=preprocessed_data_path+"item_matrix.csv"
-#A_sparse = sparse.csr_matrix(DF_var)
-#A_sparse=DF_var.values
-
 cosine_sim=cosine_similarity(DF_var,DF_var)
 print(np.shape(cosine_sim))
 
